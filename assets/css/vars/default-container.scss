@@ -1,0 +1,17 @@
+
+@include mobile {
+  .default-container {
+    padding: 1rem;
+  }
+  .hide-tab-label-mobile {
+    a {
+      text-align: center;
+    }
+    span:not(.icon) {
+      display: none;
+    }
+    span.icon {
+      margin-right: 0 !important;
+    }
+  }
+}

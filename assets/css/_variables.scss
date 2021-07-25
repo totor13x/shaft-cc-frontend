@@ -1,0 +1,80 @@
+@function toHexNumbers ($color) {
+    @return red($color) + ", " + green($color) + ", " + blue($color);
+}
+
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$body-background-color: #fff;
+$primary: rgb(94, 130, 158) ;
+$info: rgb(106, 94, 110);
+$success: rgb(81, 162, 103);
+$warning: rgb(208, 146, 47);
+$danger: rgb(197, 46, 46);
+
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);
+
+$info-light: findLightColor($info);
+$info-dark: findDarkColor($info);
+$info-invert: findColorInvert($info);
+
+$success-light: findLightColor($success);
+$success-dark: findDarkColor($success);
+$success-invert: findColorInvert($success);
+
+$warning-light: findLightColor($warning);
+$warning-dark: findDarkColor($warning);
+$warning-invert: findColorInvert($warning);
+
+$danger-light: findLightColor($danger);
+$danger-dark: findDarkColor($danger);
+$danger-invert: findColorInvert($danger);
+
+// 241f29 -- INfo original
+// Pereopredelenie peremennih
+// $navbar-item-hover-color:   $primary
+$navbar-item-img-max-height:    2em;
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert, $primary-light, $primary-dark),
+    "info": ($info, $info-invert, $info-light, $info-dark),
+    "success": ($success, $success-invert, $success-light, $success-dark),
+    "warning": ($warning, $warning-invert, $warning-light, $warning-dark),
+    "danger": ($danger, $danger-invert, $danger-light, $danger-dark)
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+$dimensions: 16 20 24 32 48 64 96 128;
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+@import "@/assets/css/vars/default-container.scss";
+@import "@/assets/css/vars/sidebar.scss";
+
+:root {
+    --vs-primary: 94, 130, 158;
+    --vs-success: 81, 162, 103;
+    --vs-danger: 197, 46, 46;
+    --vs-warn: 208, 146, 47;
+    --vs-dark: 33, 33, 33;
+}
+@import "vuesax/dist/vuesax.css";
+
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  .has-md--#{$name} {
+    color: $color !important
+  }
+}
